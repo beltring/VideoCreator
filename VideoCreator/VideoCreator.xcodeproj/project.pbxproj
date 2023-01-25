@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DAD59C6A04E04FBC99A85B /* Pods_VideoCreator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0B7D9756AB866CB6AB97E1 /* Pods_VideoCreator.framework */; };
+		1430671029819D7700FAFBD2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430670F29819D7700FAFBD2 /* NetworkManager.swift */; };
+		1430671229819D9600FAFBD2 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430671129819D9600FAFBD2 /* UnsplashAPI.swift */; };
+		1430671429819EEE00FAFBD2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430671329819EEE00FAFBD2 /* Constants.swift */; };
+		143067172981A2F500FAFBD2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143067162981A2F500FAFBD2 /* Photo.swift */; };
+		1430671A2981A8C800FAFBD2 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143067192981A8C800FAFBD2 /* UIViewController+Alert.swift */; };
+		1430671D2981AED900FAFBD2 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430671C2981AED900FAFBD2 /* PhotoCell.swift */; };
 		144D8D4C29818ADF007A5A55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D4B29818ADF007A5A55 /* AppDelegate.swift */; };
 		144D8D4E29818ADF007A5A55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D4D29818ADF007A5A55 /* SceneDelegate.swift */; };
 		144D8D5029818ADF007A5A55 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D4F29818ADF007A5A55 /* GalleryViewController.swift */; };
@@ -15,9 +22,16 @@
 		144D8D6B29819164007A5A55 /* GalleryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D6A29819164007A5A55 /* GalleryViewDelegate.swift */; };
 		144D8D6D29819199007A5A55 /* GalleryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D6C29819199007A5A55 /* GalleryPresenter.swift */; };
 		144D8D7029819274007A5A55 /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144D8D6F29819274007A5A55 /* PinterestLayout.swift */; };
+		14FAFCBC2981C91300B369C3 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FAFCBB2981C91300B369C3 /* PhotoList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1430670F29819D7700FAFBD2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1430671129819D9600FAFBD2 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
+		1430671329819EEE00FAFBD2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		143067162981A2F500FAFBD2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		143067192981A8C800FAFBD2 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		1430671C2981AED900FAFBD2 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		144D8D4829818ADF007A5A55 /* VideoCreator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoCreator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		144D8D4B29818ADF007A5A55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		144D8D4D29818ADF007A5A55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +42,10 @@
 		144D8D6A29819164007A5A55 /* GalleryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewDelegate.swift; sourceTree = "<group>"; };
 		144D8D6C29819199007A5A55 /* GalleryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPresenter.swift; sourceTree = "<group>"; };
 		144D8D6F29819274007A5A55 /* PinterestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		14FAFCBB2981C91300B369C3 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
+		9F0B7D9756AB866CB6AB97E1 /* Pods_VideoCreator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoCreator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE7C981487D4AFB6DD71829A /* Pods-VideoCreator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCreator.release.xcconfig"; path = "Target Support Files/Pods-VideoCreator/Pods-VideoCreator.release.xcconfig"; sourceTree = "<group>"; };
+		F1F6D51EC8310780FC397D16 /* Pods-VideoCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCreator.debug.xcconfig"; path = "Target Support Files/Pods-VideoCreator/Pods-VideoCreator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +53,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DAD59C6A04E04FBC99A85B /* Pods_VideoCreator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14025522185A61C8B5C726CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1F6D51EC8310780FC397D16 /* Pods-VideoCreator.debug.xcconfig */,
+				BE7C981487D4AFB6DD71829A /* Pods-VideoCreator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		143067152981A2E500FAFBD2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				143067162981A2F500FAFBD2 /* Photo.swift */,
+				14FAFCBB2981C91300B369C3 /* PhotoList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		143067182981A8B000FAFBD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				143067192981A8C800FAFBD2 /* UIViewController+Alert.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1430671B2981AEC900FAFBD2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1430671C2981AED900FAFBD2 /* PhotoCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		144D8D3F29818ADF007A5A55 = {
 			isa = PBXGroup;
 			children = (
 				144D8D4A29818ADF007A5A55 /* VideoCreator */,
 				144D8D4929818ADF007A5A55 /* Products */,
+				14025522185A61C8B5C726CC /* Pods */,
+				5C8FAB3C9E5FAB5B19D6A152 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,9 +117,10 @@
 			children = (
 				144D8D5929818AE0007A5A55 /* Info.plist */,
 				144D8D6129818C18007A5A55 /* Application */,
-				144D8D6229818C2A007A5A55 /* Parents */,
+				143067152981A2E500FAFBD2 /* Models */,
 				144D8D5F29818BDB007A5A55 /* Modules */,
 				144D8D6429818C4C007A5A55 /* Network */,
+				144D8D6229818C2A007A5A55 /* Parents */,
 				144D8D6029818BE4007A5A55 /* Resources */,
 				144D8D6329818C32007A5A55 /* Utils */,
 			);
@@ -108,6 +164,8 @@
 		144D8D6329818C32007A5A55 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				143067182981A8B000FAFBD2 /* Extensions */,
+				1430671329819EEE00FAFBD2 /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -115,6 +173,8 @@
 		144D8D6429818C4C007A5A55 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1430670F29819D7700FAFBD2 /* NetworkManager.swift */,
+				1430671129819D9600FAFBD2 /* UnsplashAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -147,6 +207,7 @@
 		144D8D6929819138007A5A55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1430671B2981AEC900FAFBD2 /* Cell */,
 				144D8D4F29818ADF007A5A55 /* GalleryViewController.swift */,
 				144D8D6A29819164007A5A55 /* GalleryViewDelegate.swift */,
 			);
@@ -161,6 +222,14 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
+		5C8FAB3C9E5FAB5B19D6A152 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9F0B7D9756AB866CB6AB97E1 /* Pods_VideoCreator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 144D8D5C29818AE0007A5A55 /* Build configuration list for PBXNativeTarget "VideoCreator" */;
 			buildPhases = (
+				84150559AC7690D6E241D913 /* [CP] Check Pods Manifest.lock */,
 				144D8D4429818ADF007A5A55 /* Sources */,
 				144D8D4529818ADF007A5A55 /* Frameworks */,
 				144D8D4629818ADF007A5A55 /* Resources */,
+				23A04A6D6A45ADFC7B5F756F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +297,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23A04A6D6A45ADFC7B5F756F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VideoCreator/Pods-VideoCreator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VideoCreator/Pods-VideoCreator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VideoCreator/Pods-VideoCreator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84150559AC7690D6E241D913 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoCreator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		144D8D4429818ADF007A5A55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -234,9 +347,16 @@
 				144D8D7029819274007A5A55 /* PinterestLayout.swift in Sources */,
 				144D8D5029818ADF007A5A55 /* GalleryViewController.swift in Sources */,
 				144D8D6D29819199007A5A55 /* GalleryPresenter.swift in Sources */,
+				14FAFCBC2981C91300B369C3 /* PhotoList.swift in Sources */,
+				1430671029819D7700FAFBD2 /* NetworkManager.swift in Sources */,
+				1430671D2981AED900FAFBD2 /* PhotoCell.swift in Sources */,
+				1430671A2981A8C800FAFBD2 /* UIViewController+Alert.swift in Sources */,
+				143067172981A2F500FAFBD2 /* Photo.swift in Sources */,
+				1430671229819D9600FAFBD2 /* UnsplashAPI.swift in Sources */,
 				144D8D4C29818ADF007A5A55 /* AppDelegate.swift in Sources */,
 				144D8D6B29819164007A5A55 /* GalleryViewDelegate.swift in Sources */,
 				144D8D4E29818ADF007A5A55 /* SceneDelegate.swift in Sources */,
+				1430671429819EEE00FAFBD2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +490,7 @@
 		};
 		144D8D5D29818AE0007A5A55 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1F6D51EC8310780FC397D16 /* Pods-VideoCreator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -397,6 +518,7 @@
 		};
 		144D8D5E29818AE0007A5A55 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE7C981487D4AFB6DD71829A /* Pods-VideoCreator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -8,7 +8,6 @@
 import Foundation
 
 protocol GalleryViewDelegate: AnyObject {
-//    func didObtainUserInfo(user: User)
-//    func didObtainAddresses(count: Int)
-//    func showErrorAlert(description: String)
+    func didObtainPhotos(photos: [Photo])
+    func showErrorAlert(description: String)
 }
