@@ -45,12 +45,12 @@ class GalleryViewController: UIViewController {
 
     private func configureConstraints() {
         photosCollectionView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view)
+            make.leading.trailing.top.bottom.equalToSuperview()
         }
 
         nextButton.snp.makeConstraints { make in
             make.height.equalTo(52)
-            make.leading.trailing.equalTo(view).inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(22)
         }
     }

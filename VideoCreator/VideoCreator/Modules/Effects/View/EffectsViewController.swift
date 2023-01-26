@@ -17,6 +17,7 @@ class EffectsViewController: UIViewController {
             nextButton.backgroundColor = selectedEffect.isEmpty ? .black.withAlphaComponent(0.4) : .black
         }
     }
+    private var timer: Timer?
 
     // MARK: - Lifecycle
 
@@ -51,10 +52,29 @@ class EffectsViewController: UIViewController {
         }
     }
 
+    private func showLoaderView() {
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        window?.addSubview(loaderView)
+        loaderView.configure(title: "Video Processing", description: "Wait a little bit")
+        loaderView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        timer = Timer.scheduledTimer(timeInterval: 5.0,
+                                         target: self,
+                                         selector: #selector(hideLoaderView),
+                                         userInfo: nil,
+                                         repeats: false)
+    }
+
+    @objc private func hideLoaderView() {
+        loaderView.removeFromSuperview()
+    }
+
     // MARK: - Actions
 
     @objc func tappedNextButton(sender: UIButton!) {
-        print("\n MYLOG: tapped next button")
+        showLoaderView()
     }
 
     @objc func tappedBackButton() {
@@ -90,6 +110,8 @@ class EffectsViewController: UIViewController {
 
         return button
     }()
+
+    private lazy var loaderView = LoaderView()
 }
 
 // MARK: - UICollectionViewDataSource

@@ -28,6 +28,8 @@
 		CE62EAF7298246480011E8B4 /* EffectsViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAF6298246480011E8B4 /* EffectsViewDelegate.swift */; };
 		CE62EAFA298247D00011E8B4 /* EffectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAF9298247D00011E8B4 /* EffectCell.swift */; };
 		CE62EAFC298251250011E8B4 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAFB298251250011E8B4 /* Effect.swift */; };
+		CE62EAFF2982761A0011E8B4 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAFE2982761A0011E8B4 /* LoaderView.swift */; };
+		CE62EB01298287200011E8B4 /* LoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EB00298287200011E8B4 /* LoaderAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		CE62EAF6298246480011E8B4 /* EffectsViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsViewDelegate.swift; sourceTree = "<group>"; };
 		CE62EAF9298247D00011E8B4 /* EffectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectCell.swift; sourceTree = "<group>"; };
 		CE62EAFB298251250011E8B4 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		CE62EAFE2982761A0011E8B4 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		CE62EB00298287200011E8B4 /* LoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderAlert.swift; sourceTree = "<group>"; };
 		F1F6D51EC8310780FC397D16 /* Pods-VideoCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCreator.debug.xcconfig"; path = "Target Support Files/Pods-VideoCreator/Pods-VideoCreator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,7 @@
 				144D8D6229818C2A007A5A55 /* Parents */,
 				144D8D6029818BE4007A5A55 /* Resources */,
 				144D8D6329818C32007A5A55 /* Utils */,
+				CE62EAFD298273130011E8B4 /* Views */,
 			);
 			path = VideoCreator;
 			sourceTree = "<group>";
@@ -277,6 +282,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE62EAFD298273130011E8B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE62EAFE2982761A0011E8B4 /* LoaderView.swift */,
+				CE62EB00298287200011E8B4 /* LoaderAlert.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -394,6 +408,7 @@
 				144D8D7029819274007A5A55 /* PinterestLayout.swift in Sources */,
 				144D8D5029818ADF007A5A55 /* GalleryViewController.swift in Sources */,
 				144D8D6D29819199007A5A55 /* GalleryPresenter.swift in Sources */,
+				CE62EB01298287200011E8B4 /* LoaderAlert.swift in Sources */,
 				CE62EAF3298246080011E8B4 /* EffectsPresenter.swift in Sources */,
 				14FAFCBC2981C91300B369C3 /* PhotoList.swift in Sources */,
 				1430671029819D7700FAFBD2 /* NetworkManager.swift in Sources */,
@@ -405,6 +420,7 @@
 				1430671229819D9600FAFBD2 /* UnsplashAPI.swift in Sources */,
 				CE62EAFC298251250011E8B4 /* Effect.swift in Sources */,
 				144D8D4C29818ADF007A5A55 /* AppDelegate.swift in Sources */,
+				CE62EAFF2982761A0011E8B4 /* LoaderView.swift in Sources */,
 				CE62EAFA298247D00011E8B4 /* EffectCell.swift in Sources */,
 				144D8D6B29819164007A5A55 /* GalleryViewDelegate.swift in Sources */,
 				144D8D4E29818ADF007A5A55 /* SceneDelegate.swift in Sources */,
