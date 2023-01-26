@@ -47,6 +47,10 @@ final class LoaderView: UIView {
         loaderAlert.configure(title: title, description: description)
     }
 
+    func hideLoaderAlert() {
+        loaderAlert.isHidden = true
+    }
+
     // MARK: - UIComponents
 
     private lazy var backgroundView: UIVisualEffectView = {

@@ -126,12 +126,12 @@ extension GalleryViewController: GalleryViewDelegate {
 
     func showErrorAlert(description: String) {
         presentAlert(title: Constants.errorTitle,
-                      message: description,
-                      preferredStyle: .alert,
-                     cancelTitle: Constants.okTitle,
-                      cancelStyle: .default,
-                      animated: true
-         )
+                     message: description,
+                     preferredStyle: .alert,
+                     cancelTitle: Constants.okButtonTitle,
+                     cancelStyle: .default,
+                     animated: true
+        )
     }
 }
 

@@ -14,7 +14,14 @@ struct Constants {
     static let maxPerPage = 30
 
     static let errorTitle = "Error"
-    static let okTitle = "OK"
+    static let successTitle = "It's done"
+    static let okButtonTitle = "OK"
+    static let successDescription = "Video successfully saved to your gallery"
+    static let errorDescription = "Failed to save video"
 
     static let defaultCornerRadius = 6
+
+    static var LibraryURL: URL {
+        return try! FileManager.default.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    }
 }

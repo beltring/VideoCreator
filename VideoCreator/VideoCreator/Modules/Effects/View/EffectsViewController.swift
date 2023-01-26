@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class EffectsViewController: UIViewController {
 
@@ -64,8 +65,33 @@ class EffectsViewController: UIViewController {
         }
     }
 
-    @objc private func hideLoaderView() {
+    private func presentResultAlert(success: Bool) {
+        loaderView.hideLoaderAlert()
+        if success {
+            presentAlert(title: Constants.successTitle,
+                         message: Constants.successDescription,
+                         preferredStyle: .alert,
+                         cancelTitle: Constants.okButtonTitle,
+                         cancelStyle: .default,
+                         cancelHandler: popViewController(action:),
+                         animated: true
+            )
+        } else {
+            presentAlert(title: Constants.errorTitle,
+                         titleColor: .red,
+                         message: Constants.errorDescription,
+                         preferredStyle: .alert,
+                         cancelTitle: Constants.okButtonTitle,
+                         cancelStyle: .default,
+                         cancelHandler: popViewController(action:),
+                         animated: true
+            )
+        }
+    }
+
+    func popViewController(action: UIAlertAction) {
         loaderView.removeFromSuperview()
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Actions
@@ -73,9 +99,17 @@ class EffectsViewController: UIViewController {
     @objc func tappedNextButton(sender: UIButton!) {
         showLoaderView()
         if fullSizeImages.count == 2 {
-            print("\n MYLOG: didDownloadPhoto 2")
-            let editor = VideoEditorService(selectedPhotosArray: fullSizeImages)
-            editor.buildVideoFromImageArray()
+
+            var audio: AVURLAsset?
+            var timeRange: CMTimeRange?
+
+            let maker = VideoEditorService(images: fullSizeImages, transition: ImageTransition.pushRight)
+
+            maker.contentMode = .scaleAspectFit
+
+            maker.exportVideo(audio: audio, audioTimeRange: timeRange, completed: { [weak self] success, _ in
+                self?.presentResultAlert(success: success)
+            })
         }
     }
 
@@ -168,11 +202,11 @@ extension EffectsViewController: EffectsViewDelegate {
 
     func showErrorAlert(description: String) {
         presentAlert(title: Constants.errorTitle,
-                      message: description,
-                      preferredStyle: .alert,
-                     cancelTitle: Constants.okTitle,
-                      cancelStyle: .default,
-                      animated: true
+                     message: description,
+                     preferredStyle: .alert,
+                     cancelTitle: Constants.okButtonTitle,
+                     cancelStyle: .default,
+                     animated: true
          )
     }
 }

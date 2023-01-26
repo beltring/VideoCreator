@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04DAD59C6A04E04FBC99A85B /* Pods_VideoCreator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F0B7D9756AB866CB6AB97E1 /* Pods_VideoCreator.framework */; };
+		1404FE002982EF3600ED689F /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404FDFF2982EF3600ED689F /* ImageTransition.swift */; };
+		1404FE022983026400ED689F /* VideoEditorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404FE012983026400ED689F /* VideoEditorService.swift */; };
+		1404FE0829831CFC00ED689F /* UIImage+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1404FE0729831CFC00ED689F /* UIImage+Init.swift */; };
 		1430671029819D7700FAFBD2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430670F29819D7700FAFBD2 /* NetworkManager.swift */; };
 		1430671229819D9600FAFBD2 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430671129819D9600FAFBD2 /* UnsplashAPI.swift */; };
 		1430671429819EEE00FAFBD2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1430671329819EEE00FAFBD2 /* Constants.swift */; };
@@ -30,10 +33,12 @@
 		CE62EAFC298251250011E8B4 /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAFB298251250011E8B4 /* Effect.swift */; };
 		CE62EAFF2982761A0011E8B4 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EAFE2982761A0011E8B4 /* LoaderView.swift */; };
 		CE62EB01298287200011E8B4 /* LoaderAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EB00298287200011E8B4 /* LoaderAlert.swift */; };
-		CE62EB0529829C090011E8B4 /* VideoEditorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62EB0429829C090011E8B4 /* VideoEditorService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1404FDFF2982EF3600ED689F /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
+		1404FE012983026400ED689F /* VideoEditorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditorService.swift; sourceTree = "<group>"; };
+		1404FE0729831CFC00ED689F /* UIImage+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Init.swift"; sourceTree = "<group>"; };
 		1430670F29819D7700FAFBD2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1430671129819D9600FAFBD2 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
 		1430671329819EEE00FAFBD2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -60,7 +65,6 @@
 		CE62EAFB298251250011E8B4 /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		CE62EAFE2982761A0011E8B4 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		CE62EB00298287200011E8B4 /* LoaderAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderAlert.swift; sourceTree = "<group>"; };
-		CE62EB0429829C090011E8B4 /* VideoEditorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEditorService.swift; sourceTree = "<group>"; };
 		F1F6D51EC8310780FC397D16 /* Pods-VideoCreator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCreator.debug.xcconfig"; path = "Target Support Files/Pods-VideoCreator/Pods-VideoCreator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				143067192981A8C800FAFBD2 /* UIViewController+Alert.swift */,
+				1404FE0729831CFC00ED689F /* UIImage+Init.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,7 +309,8 @@
 		CE62EB0329829BEC0011E8B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				CE62EB0429829C090011E8B4 /* VideoEditorService.swift */,
+				1404FDFF2982EF3600ED689F /* ImageTransition.swift */,
+				1404FE012983026400ED689F /* VideoEditorService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -442,8 +448,11 @@
 			files = (
 				144D8D7029819274007A5A55 /* PinterestLayout.swift in Sources */,
 				144D8D5029818ADF007A5A55 /* GalleryViewController.swift in Sources */,
+				1404FE0829831CFC00ED689F /* UIImage+Init.swift in Sources */,
+				1404FE002982EF3600ED689F /* ImageTransition.swift in Sources */,
 				144D8D6D29819199007A5A55 /* GalleryPresenter.swift in Sources */,
 				CE62EB01298287200011E8B4 /* LoaderAlert.swift in Sources */,
+				1404FE022983026400ED689F /* VideoEditorService.swift in Sources */,
 				CE62EAF3298246080011E8B4 /* EffectsPresenter.swift in Sources */,
 				14FAFCBC2981C91300B369C3 /* PhotoList.swift in Sources */,
 				1430671029819D7700FAFBD2 /* NetworkManager.swift in Sources */,
@@ -455,7 +464,6 @@
 				1430671229819D9600FAFBD2 /* UnsplashAPI.swift in Sources */,
 				CE62EAFC298251250011E8B4 /* Effect.swift in Sources */,
 				144D8D4C29818ADF007A5A55 /* AppDelegate.swift in Sources */,
-				CE62EB0529829C090011E8B4 /* VideoEditorService.swift in Sources */,
 				CE62EAFF2982761A0011E8B4 /* LoaderView.swift in Sources */,
 				CE62EAFA298247D00011E8B4 /* EffectCell.swift in Sources */,
 				144D8D6B29819164007A5A55 /* GalleryViewDelegate.swift in Sources */,
