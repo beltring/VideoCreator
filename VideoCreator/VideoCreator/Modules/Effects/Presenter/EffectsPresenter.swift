@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 class EffectsPresenter {
 
@@ -22,5 +23,18 @@ class EffectsPresenter {
     // Тут может быть вызов апи для получения эффектов
     func obtainEffects() {
         delegate?.didObtainEffects(effects: effects)
+    }
+
+    func downloadImage(photo: Photo) {
+        guard let url = URL(string: photo.fullUrl) else { return }
+        KingfisherManager.shared.retrieveImage(with: url) { [weak self] result in
+            switch result {
+            case .success(let retrieveResult):
+//                let image: UIImage = retrieveResult.image
+                self?.delegate?.didDownloadPhoto(image: retrieveResult.image)
+            case .failure(let error):
+                self?.delegate?.showErrorAlert(description: error.localizedDescription)
+            }
+        }
     }
 }

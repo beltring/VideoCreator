@@ -21,7 +21,7 @@ struct Photo: Decodable {
         case urls
 
         enum URLsCodingKeys: String, CodingKey {
-            case fullUrl = "full"
+            case fullUrl = "regular"
             case thumbnailUrl = "thumb"
         }
     }

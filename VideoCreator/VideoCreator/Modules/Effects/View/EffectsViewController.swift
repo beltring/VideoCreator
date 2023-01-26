@@ -9,6 +9,8 @@ import UIKit
 
 class EffectsViewController: UIViewController {
 
+    var selectedPhotos = [Photo]()
+
     private let presenter = EffectsPresenter()
     private var effects = [Effect]()
     private var selectedEffect = "" {
@@ -17,7 +19,7 @@ class EffectsViewController: UIViewController {
             nextButton.backgroundColor = selectedEffect.isEmpty ? .black.withAlphaComponent(0.4) : .black
         }
     }
-    private var timer: Timer?
+    private var fullSizeImages = [UIImage]()
 
     // MARK: - Lifecycle
 
@@ -26,6 +28,7 @@ class EffectsViewController: UIViewController {
         setupUI()
         presenter.setViewDelegate(delegate: self)
         presenter.obtainEffects()
+        selectedPhotos.forEach { presenter.downloadImage(photo: $0) }
     }
 
     // MARK: - SetupUI
@@ -59,12 +62,6 @@ class EffectsViewController: UIViewController {
         loaderView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
-        timer = Timer.scheduledTimer(timeInterval: 5.0,
-                                         target: self,
-                                         selector: #selector(hideLoaderView),
-                                         userInfo: nil,
-                                         repeats: false)
     }
 
     @objc private func hideLoaderView() {
@@ -75,6 +72,11 @@ class EffectsViewController: UIViewController {
 
     @objc func tappedNextButton(sender: UIButton!) {
         showLoaderView()
+        if fullSizeImages.count == 2 {
+            print("\n MYLOG: didDownloadPhoto 2")
+            let editor = VideoEditorService(selectedPhotosArray: fullSizeImages)
+            editor.buildVideoFromImageArray()
+        }
     }
 
     @objc func tappedBackButton() {
@@ -151,12 +153,26 @@ extension EffectsViewController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - EffectsViewDelegate
+
 extension EffectsViewController: EffectsViewDelegate {
     func didObtainEffects(effects: [Effect]) {
         self.effects = effects
         effectsCollectionView.reloadData()
     }
 
+    func didDownloadPhoto(image: UIImage) {
+        print("\n MYLOG: didDownloadPhoto")
+        fullSizeImages.append(image)
+    }
+
     func showErrorAlert(description: String) {
+        presentAlert(title: Constants.errorTitle,
+                      message: description,
+                      preferredStyle: .alert,
+                     cancelTitle: Constants.okTitle,
+                      cancelStyle: .default,
+                      animated: true
+         )
     }
 }

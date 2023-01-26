@@ -14,7 +14,7 @@ class GalleryViewController: UIViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     private let layout = PinterestLayout()
     private var photos = [Photo]()
-    private var selectedPhotos = [String]() {
+    private var selectedPhotos = [Photo]() {
         didSet {
             showNextButtonIfNeeded()
         }
@@ -83,7 +83,9 @@ class GalleryViewController: UIViewController {
     // MARK: - Actions
 
     @objc func tappedNextButton(sender: UIButton!) {
-        navigationController?.pushViewController(EffectsViewController(), animated: true)
+        let effectsVC = EffectsViewController()
+        effectsVC.selectedPhotos = selectedPhotos
+        navigationController?.pushViewController(effectsVC, animated: true)
     }
 
     // MARK: - UIComponents
@@ -166,7 +168,7 @@ extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCell.reuseIdentifer, for: indexPath) as! PhotoCell
         let photo = photos[indexPath.row]
-        let isSelected = selectedPhotos.contains(where: { $0 == photo.id })
+        let isSelected = selectedPhotos.contains(where: { $0.id == photo.id })
         cell.configure(photoURL: photo.thumbnailUrl, isSelected: isSelected)
         return cell
     }
@@ -177,15 +179,15 @@ extension GalleryViewController: UICollectionViewDataSource {
 extension GalleryViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        let isNotSelected = !selectedPhotos.contains(where: { $0 == photo.id })
+        let isNotSelected = !selectedPhotos.contains(where: { $0.id == photo.id })
         let cell = collectionView.cellForItem(at: indexPath) as! PhotoCell
 
         if isNotSelected && selectedPhotos.count < 2 {
             cell.configure(isSelected: true)
-            selectedPhotos.append(photo.id)
+            selectedPhotos.append(photo)
         } else {
             cell.configure(isSelected: false)
-            selectedPhotos.removeAll { $0 == photo.id }
+            selectedPhotos.removeAll { $0.id == photo.id }
         }
     }
 }
