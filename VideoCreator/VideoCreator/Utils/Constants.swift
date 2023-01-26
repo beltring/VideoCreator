@@ -15,4 +15,6 @@ struct Constants {
 
     static let errorTitle = "Error"
     static let okTitle = "OK"
+
+    static let defaultCornerRadius = 6
 }

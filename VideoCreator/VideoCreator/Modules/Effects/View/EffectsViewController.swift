@@ -1,0 +1,140 @@
+//
+//  EffectsViewController.swift
+//  VideoCreator
+//
+//  Created by Pavel Boltromyuk on 26.01.23.
+//
+
+import UIKit
+
+class EffectsViewController: UIViewController {
+
+    private let presenter = EffectsPresenter()
+    private var effects = [Effect]()
+    private var selectedEffect = "" {
+        didSet {
+            title = selectedEffect.isEmpty ? "Effects" : "Select 1 effect"
+            nextButton.backgroundColor = selectedEffect.isEmpty ? .black.withAlphaComponent(0.4) : .black
+        }
+    }
+
+    // MARK: - Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        presenter.setViewDelegate(delegate: self)
+        presenter.obtainEffects()
+    }
+
+    // MARK: - SetupUI
+
+    private func setupUI() {
+        title = "Effects"
+        view.backgroundColor = .white
+        view.addSubview(effectsCollectionView)
+        view.addSubview(nextButton)
+        configureConstraints()
+    }
+
+    private func configureConstraints() {
+        effectsCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(24)
+            make.leading.trailing.equalTo(view).inset(16)
+        }
+
+        nextButton.snp.makeConstraints { make in
+            make.top.equalTo(effectsCollectionView.snp.bottom).offset(24)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(22)
+            make.leading.trailing.equalTo(view).inset(16)
+            make.height.equalTo(52)
+        }
+    }
+
+    // MARK: - Actions
+
+    @objc func tappedNextButton(sender: UIButton!) {
+        print("\n MYLOG: tapped next button")
+    }
+
+    @objc func tappedBackButton() {
+        navigationController?.popViewController(animated: true)
+    }
+
+    // MARK: - UIComponents
+
+    private lazy var effectsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: view.frame.width - 32, height: view.frame.width - 32)
+        layout.minimumLineSpacing = 16
+
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.setContentOffset(.zero, animated: false)
+        collectionView.register(EffectCell.self, forCellWithReuseIdentifier: EffectCell.reuseIdentifer)
+        return collectionView
+    }()
+
+    private lazy var nextButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.layer.cornerRadius = 12
+        button.backgroundColor = .black.withAlphaComponent(0.4)
+        button.setTitle("Next", for: .normal)
+        button.titleLabel?.textAlignment = .center
+        button.titleLabel?.textColor = .white
+        button.addTarget(self, action: #selector(tappedNextButton), for: .touchUpInside)
+
+        return button
+    }()
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension EffectsViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        effects.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EffectCell.reuseIdentifer, for: indexPath) as! EffectCell
+        let effect = effects[indexPath.row]
+        cell.configure(effect: effect, isSelected: selectedEffect == effect.title)
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension EffectsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let effect = effects[indexPath.row]
+        let cell = collectionView.cellForItem(at: indexPath) as! EffectCell
+        let isSelected = selectedEffect == effect.title
+
+        if selectedEffect.isEmpty && !isSelected {
+            selectedEffect = effect.title
+            cell.configure(isSelected: true)
+        } else {
+            selectedEffect = isSelected ? "" : selectedEffect
+            cell.configure(isSelected: false)
+        }
+    }
+}
+
+extension EffectsViewController: EffectsViewDelegate {
+    func didObtainEffects(effects: [Effect]) {
+        self.effects = effects
+        effectsCollectionView.reloadData()
+    }
+
+    func showErrorAlert(description: String) {
+    }
+}

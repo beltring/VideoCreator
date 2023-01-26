@@ -9,13 +9,16 @@ import UIKit
 import Kingfisher
 
 class PhotoCell: UICollectionViewCell {
-    static let reuseIdentifer = "photo-item"
+    static let reuseIdentifer = "PhotoCell"
+
+    //MARK: - UIComponents
 
     private lazy var contentContainer: UIView = {
         let view = UIView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.clipsToBounds = true
+        view.layer.borderColor = UIColor.black.cgColor
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 6
         return view
@@ -46,7 +49,6 @@ class PhotoCell: UICollectionViewCell {
             make.edges.equalTo(contentContainer)
         }
         imageView.layer.cornerRadius = 0
-        contentContainer.layer.borderColor = UIColor.black.cgColor
         contentContainer.layer.borderWidth = 0
     }
 
@@ -74,20 +76,17 @@ class PhotoCell: UICollectionViewCell {
     }
 
     func configure(isSelected: Bool) {
+        imageView.layer.cornerRadius = isSelected ? 6 : 0
+        contentContainer.layer.borderWidth = isSelected ? 2 : 0
+        
         if isSelected {
             imageView.snp.remakeConstraints { make in
                 make.edges.equalTo(contentContainer).inset(6)
             }
-            imageView.layer.cornerRadius = 6
-            contentContainer.layer.borderColor = UIColor.black.cgColor
-            contentContainer.layer.borderWidth = 2
         } else {
             imageView.snp.remakeConstraints { make in
                 make.edges.equalTo(contentContainer)
             }
-            imageView.layer.cornerRadius = 0
-            contentContainer.layer.borderColor = UIColor.black.cgColor
-            contentContainer.layer.borderWidth = 0
         }
     }
 }

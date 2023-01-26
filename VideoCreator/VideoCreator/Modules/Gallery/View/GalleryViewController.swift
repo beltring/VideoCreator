@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Nuke
 
 class GalleryViewController: UIViewController {
 
@@ -36,12 +35,12 @@ class GalleryViewController: UIViewController {
     // MARK: - SetupUI
 
     private func setupUI() {
-        title = "Find photos"
         view.backgroundColor = .white
         view.addSubview(photosCollectionView)
         view.addSubview(nextButton)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
         configureConstraints()
-        print("/n MY LOG: SetupUI")
+        setupNavbar()
     }
 
     private func configureConstraints() {
@@ -52,8 +51,14 @@ class GalleryViewController: UIViewController {
         nextButton.snp.makeConstraints { make in
             make.height.equalTo(52)
             make.leading.trailing.equalTo(view).inset(16)
-            make.bottom.equalTo(view).inset(55)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(22)
         }
+    }
+
+    private func setupNavbar() {
+        title = "Find photos"
+        navigationController?.navigationBar.tintColor = .black
+        navigationItem.backButtonTitle = ""
     }
 
     private func configureSearchController() {
@@ -78,8 +83,8 @@ class GalleryViewController: UIViewController {
     // MARK: - Actions
 
     @objc func tappedNextButton(sender: UIButton!) {
-        print("Button tapped")
-      }
+        navigationController?.pushViewController(EffectsViewController(), animated: true)
+    }
 
     // MARK: - UIComponents
 
@@ -113,7 +118,6 @@ class GalleryViewController: UIViewController {
 
 extension GalleryViewController: GalleryViewDelegate {
     func didObtainPhotos(photos: [Photo]) {
-        print("/n MY LOG: \(photos.count)")
         self.photos = photos
         photosCollectionView.reloadData()
     }
