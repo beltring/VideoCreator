@@ -32,6 +32,12 @@ class GalleryViewController: UIViewController {
         setupUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedPhotos = []
+        photosCollectionView.reloadData()
+    }
+
     // MARK: - SetupUI
 
     private func setupUI() {
@@ -157,10 +163,6 @@ extension GalleryViewController: UISearchBarDelegate {
 // MARK: - UICollectionViewDataSource
 
 extension GalleryViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }

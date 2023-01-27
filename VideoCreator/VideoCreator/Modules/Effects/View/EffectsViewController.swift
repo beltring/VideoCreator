@@ -71,6 +71,8 @@ class EffectsViewController: UIViewController {
         }
     }
 
+    // MARK: - Functions
+
     private func presentResultAlert(success: Bool) {
         loaderView.hideLoaderAlert()
         if success {
@@ -156,9 +158,6 @@ class EffectsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension EffectsViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         effects.count
