@@ -17,10 +17,17 @@ class EffectsViewController: UIViewController {
     private var selectedEffect = "" {
         didSet {
             title = selectedEffect.isEmpty ? "Effects" : "Select 1 effect"
+            nextButton.isEnabled = !selectedEffect.isEmpty
             nextButton.backgroundColor = selectedEffect.isEmpty ? .black.withAlphaComponent(0.4) : .black
         }
     }
-    private var fullSizeImages = [UIImage]()
+    private var fullSizeImages = [UIImage]() {
+        didSet {
+            if fullSizeImages.count == selectedPhotos.count {
+                buildVideo()
+            }
+        }
+    }
 
     // MARK: - Lifecycle
 
@@ -29,7 +36,6 @@ class EffectsViewController: UIViewController {
         setupUI()
         presenter.setViewDelegate(delegate: self)
         presenter.obtainEffects()
-        selectedPhotos.forEach { presenter.downloadImage(photo: $0) }
     }
 
     // MARK: - SetupUI
@@ -89,28 +95,24 @@ class EffectsViewController: UIViewController {
         }
     }
 
-    func popViewController(action: UIAlertAction) {
+    private func popViewController(action: UIAlertAction) {
         loaderView.removeFromSuperview()
         navigationController?.popViewController(animated: true)
+    }
+
+    private func buildVideo() {
+        let effect = effects.first { $0.title == selectedEffect } ?? .none
+        let maker = VideoEditorService(images: fullSizeImages, effect: effect)
+        maker.buildVideo(completed: { [weak self] success, _ in
+            self?.presentResultAlert(success: success)
+        })
     }
 
     // MARK: - Actions
 
     @objc func tappedNextButton(sender: UIButton!) {
         showLoaderView()
-        if fullSizeImages.count == 2 {
-
-            var audio: AVURLAsset?
-            var timeRange: CMTimeRange?
-
-            let maker = VideoEditorService(images: fullSizeImages, transition: ImageTransition.pushRight)
-
-            maker.contentMode = .scaleAspectFit
-
-            maker.exportVideo(audio: audio, audioTimeRange: timeRange, completed: { [weak self] success, _ in
-                self?.presentResultAlert(success: success)
-            })
-        }
+        selectedPhotos.forEach { presenter.downloadImage(photo: $0) }
     }
 
     @objc func tappedBackButton() {
@@ -142,6 +144,7 @@ class EffectsViewController: UIViewController {
         button.setTitle("Next", for: .normal)
         button.titleLabel?.textAlignment = .center
         button.titleLabel?.textColor = .white
+        button.isEnabled = false
         button.addTarget(self, action: #selector(tappedNextButton), for: .touchUpInside)
 
         return button
@@ -196,7 +199,6 @@ extension EffectsViewController: EffectsViewDelegate {
     }
 
     func didDownloadPhoto(image: UIImage) {
-        print("\n MYLOG: didDownloadPhoto")
         fullSizeImages.append(image)
     }
 

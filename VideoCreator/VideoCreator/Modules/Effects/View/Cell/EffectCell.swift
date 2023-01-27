@@ -68,7 +68,7 @@ class EffectCell: UICollectionViewCell {
     // MARK: - Configure
 
     func configure(effect: Effect, isSelected: Bool = false) {
-        imageView.image = UIImage(named: effect.imageName)
+        imageView.image = effect.image
         titleLabel.text = effect.title
         configure(isSelected: isSelected)
     }

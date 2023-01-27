@@ -10,6 +10,5 @@ target 'VideoCreator' do
   pod 'Kingfisher', '~> 7.0'
   pod 'SnapKit', '~> 5.6.0'
   pod 'Moya', '~> 15.0'
-  pod 'Nuke', '~> 10.7'
 
 end
